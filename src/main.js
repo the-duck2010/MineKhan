@@ -27,6 +27,7 @@ import { getSkybox } from './js/sky'
 import { Chunk } from "./js/chunk.js"
 // import { Item } from './js/item.js'
 import { Player } from "./js/player.js"
+import { loadPlugin } from "./js/pluginLoader.js"
 
 window.blockData = blockData
 window.canvas = document.getElementById("overlay")
@@ -1810,6 +1811,10 @@ async function MineKhan() {
 		else {
 			chat("You're all alone. Sorry.", "tomato")
 		}
+	})
+	commands.set("test", args => {
+		let plugin = args.join("")
+		loadPlugin(plugin)
 	})
 
 	function sendCommand(msg) {

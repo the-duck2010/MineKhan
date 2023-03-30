@@ -4012,6 +4012,33 @@ class Entity {
 
 
 
+/***/ }),
+/* 26 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "loadPlugin": () => (/* binding */ loadPlugin)
+/* harmony export */ });
+/* harmony import */ var _blockData_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
+
+
+const loadPlugin = function (plugin) {
+	let i = 0;
+	// const keys = Object.keys(plugin);
+	// for (i; i < keys.length; i++) {
+	//   blockData.set(plugin[keys[i]]);
+	// }
+	for (plugin.length; i < plugin.length; i++) {
+		try {
+			_blockData_js__WEBPACK_IMPORTED_MODULE_0__.blockData[i] = plugin[i]
+		} catch {}
+	}
+  };
+  
+
+
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -4109,6 +4136,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_sky__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(20);
 /* harmony import */ var _js_chunk_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(23);
 /* harmony import */ var _js_player_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(24);
+/* harmony import */ var _js_pluginLoader_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(26);
 
 
 // GLSL Shader code
@@ -4137,6 +4165,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import { Item } from './js/item.js'
+
 
 
 window.blockData = _js_blockData_js__WEBPACK_IMPORTED_MODULE_11__.blockData
@@ -5921,6 +5950,10 @@ async function MineKhan() {
 		else {
 			chat("You're all alone. Sorry.", "tomato")
 		}
+	})
+	commands.set("test", args => {
+		let plugin = args.join("")
+		;(0,_js_pluginLoader_js__WEBPACK_IMPORTED_MODULE_19__.loadPlugin)(plugin)
 	})
 
 	function sendCommand(msg) {
